@@ -1,0 +1,9 @@
+.notes-list-container{
+    display: grid;
+
+    /* It's telling the browser to create as many columns as it can fit in the container, with a
+    minimum width of 200px and a maximum width of 1 fraction of the container. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    grid-gap: 20px;
+}

@@ -1,0 +1,15 @@
+.note-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(208, 208, 84);
+    min-height: 220px;
+    padding: 1rem;
+    border-radius: 12px;
+    justify-content: space-between;
+}
+
+.note-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
