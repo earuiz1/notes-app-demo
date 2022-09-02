@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NotesList from "./components/NotesList";
-import Header from "./components/Header";
-
+//import Header from "./components/Header";
+import Nav from "./components/Nav";
 import { v4 as uuid } from "uuid";
 
 const dummy_notes = [
@@ -46,19 +46,21 @@ function App() {
     const filteredNotes = note.filter((n) => n.id !== noteID);
 
     setNote(filteredNotes);
-    
+
     //console.log(note);
   };
 
   return (
-    <div className="container">
-      <Header />
-      <NotesList
-        notes={note}
-        onSaveData={savedData}
-        onDeleteNote={deleteNote}
-      />
-    </div>
+    <React.Fragment>
+      <Nav />
+      <div className="container">
+        <NotesList
+          notes={note}
+          onSaveData={savedData}
+          onDeleteNote={deleteNote}
+        />
+      </div>
+    </React.Fragment>
   );
 }
 

@@ -19,7 +19,7 @@ function Note(props) {
             <span>{props.text}</span>
         </div>
         <div className="note-footer">
-            <p>{props.date}</p>
+            <span>{props.date}</span>
             <BsFillTrashFill size = {20} onClick={clickHandler}/>
         </div>
     </div>

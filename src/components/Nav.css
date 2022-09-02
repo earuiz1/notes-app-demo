@@ -1,0 +1,43 @@
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: black;
+    padding: 0 1rem 0 1rem;
+    margin-bottom: 1rem;
+    
+}
+.nav-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.nav-header h1{
+    color: white;
+    margin-left: 0.5rem;
+}
+
+svg path {
+    stroke: white;
+}
+
+.nav-body{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@media only screen and (max-width: 767px) {
+    /* For mobile phones: */
+
+    .nav-container{
+        padding: 0.8rem 1rem 0.8rem 1rem;
+    }
+
+    .nav-header h1{
+        font-size: 25px;
+    }
+    
+  }
