@@ -14,7 +14,7 @@ function Note(props) {
         </div>
         <div className="note-footer">
             <p>{props.date}</p>
-            <BsFillTrashFill size = {16}/>
+            <BsFillTrashFill size = {20}/>
         </div>
     </div>
   )

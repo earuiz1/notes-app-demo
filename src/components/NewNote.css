@@ -1,0 +1,45 @@
+.new-note-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(75, 75, 216);
+    min-height: 220px;
+    padding: 2rem 1rem 1rem 1rem;
+    border-radius: 12px;
+    justify-content: space-between;
+}
+
+.new-note-title input{
+    background-color: rgb(75, 75, 216);
+    border: none;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.new-note-title input::placeholder{
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.new-note-title input:focus{
+    outline: none;
+}
+
+.new-note-body textarea{
+    background-color: rgb(75, 75, 216);
+    color: white;
+    border: none;
+    resize: none;
+    width: 100%;
+}
+
+.new-note-body textarea:focus{
+    outline: none;
+}
+
+.new-note-footer{
+    display: flex;
+    justify-content: flex-end;
+}
