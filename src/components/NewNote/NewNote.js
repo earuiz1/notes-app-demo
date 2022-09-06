@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./NewNote.css";
 
-import { AiFillSave } from "react-icons/ai";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 import { v4 as uuid } from "uuid";
 
 function NewNote(props) {
@@ -56,7 +56,7 @@ function NewNote(props) {
         />
       </div>
       <div className="new-note-footer">
-        <AiFillSave size={20} onClick={clickHandler} />
+        <AiOutlinePlusCircle size={22} onClick={clickHandler} />
       </div>
     </div>
   );

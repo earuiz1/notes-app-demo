@@ -16,10 +16,10 @@
 
 .nav-header h1{
     color: white;
-    margin-left: 0.5rem;
+    margin-left: 0.6rem;
 }
 
-svg path {
+.nav-header svg path {
     stroke: white;
 }
 

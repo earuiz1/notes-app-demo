@@ -3,7 +3,11 @@ import { GrDocumentNotes } from "react-icons/gr";
 import SearchBar from "./SearchBar";
 import "./Nav.css";
 
-function Nav() {
+function Nav(props) {
+    const searchNote = (searchedNote) => {
+        //console.log('In ....js',searchedNote);
+        props.onSearchNote(searchedNote);
+    }
   return (
     <div className="nav-container">
       <div className="nav-header">
@@ -11,7 +15,7 @@ function Nav() {
         <h1>Notes App</h1>
       </div>
       <div className="nav-body">
-        <SearchBar />
+        <SearchBar onSearch={searchNote}/>
       </div>
     </div>
   );
