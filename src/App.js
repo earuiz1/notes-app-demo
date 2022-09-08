@@ -32,7 +32,7 @@ const dummy_notes = [
 
 function App() {
   const [note, setNote] = useState(dummy_notes);
-  const [searchedWord, setSearchedWord] = useState('');
+  const [searchedWord, setSearchedWord] = useState("");
 
   const savedData = (data) => {
     //console.log('App.js',data);
@@ -44,26 +44,35 @@ function App() {
   const deleteNote = (noteID) => {
     //console.log('In App.js', noteID);
     const filteredNotes = note.filter((n) => n.id !== noteID);
-
     setNote(filteredNotes);
-
-    //console.log(note);
   };
 
   const searchNote = (searchedNote) => {
-      console.log('In App.js',searchedNote);
-      setSearchedWord(searchedNote);
-  }
+    console.log("In App.js", searchedNote);
+    setSearchedWord(searchedNote);
+  };
 
+  const editedNote = (editedNoteData) => {
+    const updatedNotesArray = note.map((n) => {
+      if (n.id === editedNoteData.id) {
+        return editedNoteData;
+      }
+
+      return n;
+    });
+
+    setNote(updatedNotesArray);
+  };
   return (
     <React.Fragment>
-      <Nav onSearchNote={searchNote}/>
+      <Nav onSearchNote={searchNote} />
       <div className="container">
         <NotesList
           notes={note}
           onSaveData={savedData}
           onDeleteNote={deleteNote}
-          searchedWord={searchedWord}
+          searchedWord={searchedWord.toLowerCase()}
+          onEdited={editedNote}
         />
       </div>
     </React.Fragment>

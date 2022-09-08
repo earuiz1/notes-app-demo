@@ -1,12 +1,15 @@
+.search-bar{
+    position: relative;
+}
+
 .search-bar input{
-    padding: 0.8rem;
+    padding: 0.8rem 0.8rem 0.8rem 1.8rem;
     border-radius: 10px;
     border: none;
-    text-indent: 12px;
 }
 
 .search-bar svg{
     position: absolute;
-    margin-top: 12px;
-    margin-left: 6px;
+    top: 13px;
+    right: 165px;
 }
