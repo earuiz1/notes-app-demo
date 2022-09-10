@@ -4,21 +4,21 @@ import NewNote from "./NewNote/NewNote";
 import "./NotesList.css";
 
 function NotesList(props) {
-  const savedData = (data) => {
-    props.onSaveData(data);
+  const addNote = (data) => {
+    props.onAddNote(data);
   };
 
-  const savedID_Delete = (saved_ID) => {
+  const deleteNote = (saved_ID) => {
     props.onDeleteNote(saved_ID);
   };
 
-  const savedEditedValues = (editedNoteData) => {
+  const editNote = (editedNoteData) => {
     props.onEdited(editedNoteData);
   };
 
   return (
     <div className="notes-list-container">
-      <NewNote onSaveData={savedData} />
+      <NewNote onAddNote={addNote} />
       {props.notes
         .filter((note) => note.title.toLowerCase().includes(props.searchedWord))
         .map((note) => (
@@ -28,8 +28,8 @@ function NotesList(props) {
             title={note.title}
             text={note.text}
             date={note.date}
-            onSavedID={savedID_Delete}
-            onEdited={savedEditedValues}
+            onDelete={deleteNote}
+            onEdit={editNote}
           />
         ))}
     </div>

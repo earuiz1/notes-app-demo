@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./Note.css";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { BsFillTrashFill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 import { IoSave } from "react-icons/io5";
@@ -8,17 +11,12 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 
 function Note(props) {
   const [isClicked, setIsClicked] = useState(false);
-  const [editedTitle, setEditedTitle] = useState("");
-  const [editedBody, setEditedBody] = useState("");
+  const [editedTitle, setEditedTitle] = useState(props.title);
+  const [editedBody, setEditedBody] = useState(props.text);
 
   const editClickHandle = () => {
     console.log("Clicked");
     setIsClicked(true);
-  };
-
-  const deleteClickHandler = () => {
-    //console.log(props.id);
-    props.onSavedID(props.id);
   };
 
   const changeTitle = (event) => {
@@ -31,8 +29,27 @@ function Note(props) {
     setEditedBody(event.target.value);
   };
 
+  const deleteClickHandler = () => {
+    //console.log(props.id);
+    props.onDelete(props.id);
+
+    //Show a success pop up message
+    toast.success("Note successfully deleted!", {
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  //
   const saveClickHandle = () => {
+    //Check if both inputs are not empty
     if (editedTitle.trim().length > 0 && editedBody.trim().length > 0) {
+      //Create an object in which you will store the new edited note data
       const editedNoteData = {
         id: props.id,
         title: editedTitle,
@@ -40,16 +57,44 @@ function Note(props) {
         date: new Date().toLocaleString(),
       };
 
-      props.onEdited(editedNoteData);
+      //Lift the object data up
+      props.onEdit(editedNoteData);
 
+      //Show the original note once the info has been passed up.
       setIsClicked(false);
 
-      //Clear input values using two-way b
-      setEditedTitle("");
-      setEditedBody("");
+      //Clear input values using two-way binding
+      // setEditedTitle(editedTitle);
+      // setEditedBody("");
+
+      //Show a success pop up message
+      toast.success("Note successfully edited!", {
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    //If any or both inputs are empty
+    else {
+      //Show an error pop up message if the user tries to save an edited note with emptu fields.
+      toast.error("Invalid Input: Empty fields!", {
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+
+      //console.log("Empty field!");
     }
 
-    console.log("Empty field!");
+    //console.log("Empty field!");
   };
 
   const goBackHandler = () => {
@@ -57,12 +102,13 @@ function Note(props) {
     setIsClicked(false);
 
     //Clear input values using two-way b
-    setEditedTitle("");
-    setEditedBody("");
+    // setEditedTitle("");
+    // setEditedBody("");
   };
 
   return (
     <div>
+      <ToastContainer limit={1} />
       {isClicked === false && (
         <div className="note-container">
           <div className="note-corner-icon">

@@ -34,10 +34,10 @@ function App() {
   const [note, setNote] = useState(dummy_notes);
   const [searchedWord, setSearchedWord] = useState("");
 
-  const savedData = (data) => {
+  const addNote = (note_data) => {
     //console.log('App.js',data);
     setNote((prevState) => {
-      return [data, ...prevState];
+      return [note_data, ...prevState];
     });
   };
 
@@ -63,13 +63,14 @@ function App() {
 
     setNote(updatedNotesArray);
   };
+
   return (
     <React.Fragment>
       <Nav onSearchNote={searchNote} />
       <div className="container">
         <NotesList
           notes={note}
-          onSaveData={savedData}
+          onAddNote={addNote}
           onDeleteNote={deleteNote}
           searchedWord={searchedWord.toLowerCase()}
           onEdited={editedNote}
