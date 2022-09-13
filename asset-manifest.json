@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/notes-app-demo/static/css/main.89e216a5.css",
+    "main.js": "/notes-app-demo/static/js/main.75dbb7df.js",
+    "index.html": "/notes-app-demo/index.html",
+    "main.89e216a5.css.map": "/notes-app-demo/static/css/main.89e216a5.css.map",
+    "main.75dbb7df.js.map": "/notes-app-demo/static/js/main.75dbb7df.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.89e216a5.css",
+    "static/js/main.75dbb7df.js"
+  ]
+}
