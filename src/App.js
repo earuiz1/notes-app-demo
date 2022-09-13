@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NotesList from "./components/NotesList";
 import Nav from "./components/Nav/Nav";
 import { v4 as uuid } from "uuid";
@@ -7,33 +7,35 @@ const dummy_notes = [
   {
     id: uuid(),
     title: "Buy Grocerires Tomorrow",
-    text: "I'm planning to make some food tomorrow!",
+    text: "I'm planning to make some mexican food for my friends.",
     date: "01/03/2021",
   },
   {
     id: uuid(),
-    title: "Why do we use the word “debugger” in javascript?",
-    text: "The debugger for the browser must be activated in order to debug the code. Built-in debuggers may be switched on and off, requiring the user to report faults. The remaining section of the code should stop execution before moving on to the next line while debugging.",
+    title: "Doctor Appointment",
+    text: "Don't forget you have a doctor's appoinment, next week. Make sure to not forget your mask as well.",
     date: "01/05/2021",
-  },
-  {
-    id: uuid(),
-    title: "What is NaN property in JavaScript?",
-    text: "NaN property represents the “Not-a-Number” value. It indicates a value that is not a legal number.",
-    date: "02/21/2021",
-  },
-  {
-    id: uuid(),
-    title: "Explain Higher Order Functions in javascript.",
-    text: "Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions. Higher-order functions are a result of functions being first-class citizens in javascript.",
-    date: "05/13/2021",
   },
 ];
 
 function App() {
   const [note, setNote] = useState(dummy_notes);
-
   const [searchedWord, setSearchedWord] = useState("");
+
+  useEffect(() => {
+    /* Getting the data from local storage and parsing it into a JSON object. */
+    const localNotes = JSON.parse(localStorage.getItem("note_data"));
+
+    if (localNotes) {
+      console.log("Checking how many times I render");
+      setNote(localNotes);
+    }
+  }, []);
+
+  useEffect(() => {
+    /* Storing the data in the local storage. */
+    localStorage.setItem("note_data", JSON.stringify(note));
+  }, [note]);
 
   //Add new notes function
   const addNote = (note_data) => {
