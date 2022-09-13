@@ -10,9 +10,15 @@
     white-space: pre-wrap;
 }
 
+.new-note-title{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 .new-note-title input{
     background-color: rgb(75, 75, 216);
     border: none;
+    padding: 1rem 0 1rem 0rem;
     width: 100%;
     color: white;
     font-weight: bold;
@@ -27,6 +33,12 @@
 
 .new-note-title input:focus{
     outline: none;
+}
+
+.new-note-body{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .new-note-body textarea{
@@ -53,5 +65,10 @@
 
 .new-note-footer svg{
     cursor: pointer;
+    color: white;
+}
+
+.new-note-counter{
+    font-size:10px;
     color: white;
 }

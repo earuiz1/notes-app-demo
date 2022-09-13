@@ -40,26 +40,46 @@
     font-weight: bold;
 }
 
+.note-title.edit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 
-.note-title input{
+.note-title.edit input{
     background-color: rgb(245, 245, 106);
     border: none;
     width: 100%;
-    padding: 1rem 0 1rem 0rem;
+    padding: 0.8rem 0 0.8rem 0rem;
     font-size:19px;
     font-weight: bold;
 }
 
-.note-title input::placeholder{
+.note-title.edit span{
+    margin-bottom: 1rem;
+    color: rgb(49, 49, 49);
+}
+
+.note-title.edit input::placeholder{
     font-weight: bold;
 }
 
-.note-title input:focus{
+/* .note-title.edit input:focus{
     outline: none;
+} */
+
+.note-body.edit{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
+.note-body.edit span{
+    margin-bottom: 1rem;
+    color: rgb(49, 49, 49);
+}
 
-.note-body textarea{
+.note-body.edit textarea{
     background-color: rgb(245, 245, 106);
     border: none;
     resize: none;
@@ -67,9 +87,9 @@
     font-size: 13px;
 }
 
-.note-body textarea:focus{
+/* .note-body.edit textarea:focus{
   outline: none;
-}
+} */
 
 
 .note-footer-icon{
@@ -79,4 +99,8 @@
 
 .note-container svg{
     cursor: pointer;
+}
+
+.note-container.edit .note-counter{
+    font-size: 10px;
 }

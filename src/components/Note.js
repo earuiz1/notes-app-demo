@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Note.css";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { BsFillTrashFill } from "react-icons/bs";
@@ -14,19 +14,26 @@ function Note(props) {
   const [editedTitle, setEditedTitle] = useState(props.title);
   const [editedBody, setEditedBody] = useState(props.text);
 
+  let titleLimit = 30;
+  let bodyLimit = 200;
+
   const editClickHandle = () => {
     console.log("Clicked");
     setIsClicked(true);
   };
 
   const changeTitle = (event) => {
-    console.log("Title Edited");
-    setEditedTitle(event.target.value);
+    if (event.target.value.length <= titleLimit) {
+      //console.log("Title Edited");
+      setEditedTitle(event.target.value);
+    }
   };
 
   const changeBody = (event) => {
-    console.log("Body Edited");
-    setEditedBody(event.target.value);
+    if (event.target.value.length <= bodyLimit) {
+      //console.log("Body Edited");
+      setEditedBody(event.target.value);
+    }
   };
 
   const deleteClickHandler = () => {
@@ -93,8 +100,6 @@ function Note(props) {
 
       //console.log("Empty field!");
     }
-
-    //console.log("Empty field!");
   };
 
   const goBackHandler = () => {
@@ -108,7 +113,6 @@ function Note(props) {
 
   return (
     <div>
-      <ToastContainer limit={1} />
       {isClicked === false && (
         <div className="note-container">
           <div className="note-corner-icon">
@@ -127,11 +131,11 @@ function Note(props) {
         </div>
       )}
       {isClicked === true && (
-        <div className="note-container">
+        <div className="note-container edit">
           <div className="note-corner-icon">
             <IoSave size={22} onClick={saveClickHandle} />
           </div>
-          <div className="note-title">
+          <div className="note-title edit">
             <input
               type="text"
               onChange={changeTitle}
@@ -139,8 +143,11 @@ function Note(props) {
               value={editedTitle}
               autoFocus
             />
+            <span className="note-counter">
+              Characters remaining: {titleLimit - editedTitle.length}
+            </span>
           </div>
-          <div className="note-body">
+          <div className="note-body edit">
             <textarea
               rows="8"
               cols="28"
@@ -148,6 +155,9 @@ function Note(props) {
               placeholder="Edit Body..."
               value={editedBody}
             />
+            <span className="note-counter">
+              Characters remaining: {bodyLimit - editedBody.length}
+            </span>
             <div className="note-footer-icon">
               <RiArrowGoBackFill size={24} onClick={goBackHandler} />
             </div>

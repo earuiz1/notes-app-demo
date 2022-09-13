@@ -6,8 +6,8 @@ import { v4 as uuid } from "uuid";
 const dummy_notes = [
   {
     id: uuid(),
-    title: "Difference between “ == “ and “ === “ operators.",
-    text: "Both are comparison operators. The difference between both the operators is that “==” is used to compare values whereas, “ === “ is used to compare both values and types. ",
+    title: "Buy Grocerires Tomorrow",
+    text: "I'm planning to make some food tomorrow!",
     date: "01/03/2021",
   },
   {
@@ -32,8 +32,10 @@ const dummy_notes = [
 
 function App() {
   const [note, setNote] = useState(dummy_notes);
+
   const [searchedWord, setSearchedWord] = useState("");
 
+  //Add new notes function
   const addNote = (note_data) => {
     //console.log('App.js',data);
     setNote((prevState) => {
@@ -41,17 +43,20 @@ function App() {
     });
   };
 
+  //Delete notes function
   const deleteNote = (noteID) => {
     //console.log('In App.js', noteID);
     const filteredNotes = note.filter((n) => n.id !== noteID);
     setNote(filteredNotes);
   };
 
+  //Search notes function
   const searchNote = (searchedNote) => {
     console.log("In App.js", searchedNote);
     setSearchedWord(searchedNote);
   };
 
+  //Edit notes function
   const editedNote = (editedNoteData) => {
     const updatedNotesArray = note.map((n) => {
       if (n.id === editedNoteData.id) {
@@ -60,7 +65,6 @@ function App() {
 
       return n;
     });
-
     setNote(updatedNotesArray);
   };
 
