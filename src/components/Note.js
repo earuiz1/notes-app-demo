@@ -116,7 +116,7 @@ function Note(props) {
       {isClicked === false && (
         <div className="note-container">
           <div className="note-corner-icon">
-            <FaEdit size={22} onClick={editClickHandle} />
+            <FaEdit size={22} onClick={editClickHandle} title="Edit" />
           </div>
           <div className="note-title">
             <h3>{props.title}</h3>
@@ -143,9 +143,10 @@ function Note(props) {
               value={editedTitle}
               autoFocus
             />
-            <span className="note-counter">
-              Characters remaining: {titleLimit - editedTitle.length}
-            </span>
+            <p className="note-counter">
+              Characters remaining:
+              <span>{` ${titleLimit - editedTitle.length}`}</span>
+            </p>
           </div>
           <div className="note-body edit">
             <textarea
@@ -155,9 +156,10 @@ function Note(props) {
               placeholder="Edit Body..."
               value={editedBody}
             />
-            <span className="note-counter">
-              Characters remaining: {bodyLimit - editedBody.length}
-            </span>
+            <p className="note-counter">
+              Characters remaining:
+              <span>{` ${bodyLimit - editedBody.length}`}</span>
+            </p>
             <div className="note-footer-icon">
               <RiArrowGoBackFill size={24} onClick={goBackHandler} />
             </div>

@@ -1,8 +1,8 @@
 .new-note-container{
     display: flex;
     flex-direction: column;
-    background-color: rgb(75, 75, 216);
-    min-height: 250px;
+    background-color: rgb(30, 30, 241);
+    min-height: 270px;
     padding: 2rem 1rem 1rem 1rem;
     border-radius: 12px;
     justify-content: space-between;
@@ -16,9 +16,9 @@
     align-items: flex-end;
 }
 .new-note-title input{
-    background-color: rgb(75, 75, 216);
+    background-color: rgb(30, 30, 241);
     border: none;
-    padding: 1rem 0 1rem 0rem;
+    padding: 0.8rem 0 0.8rem 0rem;
     width: 100%;
     color: white;
     font-weight: bold;
@@ -33,6 +33,7 @@
 
 .new-note-title input:focus{
     outline: none;
+    border: 2px rgb(241, 217, 241) solid;
 }
 
 .new-note-body{
@@ -42,7 +43,7 @@
 }
 
 .new-note-body textarea{
-    background-color: rgb(75, 75, 216);
+    background-color: rgb(30, 30, 241);
     color: white;
     border: none;
     resize: none;
@@ -56,11 +57,13 @@
 
 .new-note-body textarea:focus{
     outline: none;
+    border: 2px rgb(241, 217, 241) solid;
 }
 
 .new-note-footer{
     display: flex;
     justify-content: flex-end;
+    padding-top: 0.4rem;
 }
 
 .new-note-footer svg{

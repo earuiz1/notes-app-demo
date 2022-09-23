@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,500;0,600;1,400&family=Frank+Ruhl+Libre:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap');
+
 .note-container{
     display: flex;
     flex-direction: column;
@@ -8,16 +10,28 @@
     justify-content: space-between;
     white-space: pre-wrap;
     box-shadow: 0px 17px 13px -10px rgba(0,0,0,0.61);
+    min-width: 300px;
 }
 
 .note-corner-icon{
     display: flex;
     justify-content: flex-end;
 }
+
 .note-title{
     display:flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.note-title h3{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Playfair Display', serif;
+    font-weight:700;
+
 }
 
 .note-body {
@@ -25,6 +39,7 @@
 }
 
 .note-body span{
+    font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 13px;
 }
 
@@ -36,6 +51,7 @@
 }
 
 .note-footer span{
+    font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 12px;
     font-weight: bold;
 }
@@ -51,45 +67,29 @@
     border: none;
     width: 100%;
     padding: 0.8rem 0 0.8rem 0rem;
+    font-family: 'Playfair Display', serif;
     font-size:19px;
-    font-weight: bold;
+    font-weight: 700;
+    font-style: italic;
 }
-
-.note-title.edit span{
-    margin-bottom: 1rem;
-    color: rgb(49, 49, 49);
-}
-
-.note-title.edit input::placeholder{
-    font-weight: bold;
-}
-
-/* .note-title.edit input:focus{
-    outline: none;
-} */
 
 .note-body.edit{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: center;
 }
 
-.note-body.edit span{
-    margin-bottom: 1rem;
-    color: rgb(49, 49, 49);
-}
 
 .note-body.edit textarea{
     background-color: rgb(245, 245, 106);
     border: none;
     resize: none;
     width: 100%;
+    font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 13px;
+    font-style: italic;
 }
-
-/* .note-body.edit textarea:focus{
-  outline: none;
-} */
 
 
 .note-footer-icon{
@@ -101,6 +101,13 @@
     cursor: pointer;
 }
 
-.note-container.edit .note-counter{
-    font-size: 10px;
+.note-counter{
+    font-size: 11px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.note-counter span{
+    font-size: 12px;
+    font-weight: bold;
 }
